@@ -1,0 +1,28 @@
+
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>앱 다운로드</title>
+  <script>
+    function redirect() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      if (/android/i.test(userAgent)) {
+        // Android → Play Store 이동
+        window.location.href = "https://play.google.com/store/apps/details?id=com.example.app";
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        // iOS → App Store 이동
+        window.location.href = "https://apps.apple.com/app/id1234567890";
+      } else {
+        // 기타 디바이스 → 공통 다운로드 페이지
+        window.location.href = "https://www.example.com/download";
+      }
+    }
+    window.onload = redirect;
+  </script>
+</head>
+<body>
+  <p>잠시만 기다려주세요. 앱 다운로드 페이지로 이동 중입니다...</p>
+</body>
+</html>
